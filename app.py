@@ -12,17 +12,24 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 logging.basicConfig(filename='app.log', level=logging.INFO)
 configure_uploads(app, videos)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/upload', methods=['POST'])
 def upload():
     if 'video' in request.files:
         video = request.files['video']
-        video_path = f"uploads/{video.filename}"
-        video.save(video_path)
-        return redirect(url_for('index'))
+        video_path = os.path.join('uploads', video.filename)
+
+        if os.path.exists(video_path):
+            logging.warning(f"File already exists: {video.filename}")
+            return 'File with this name already exists'
+
+        try:
+            video.save(video_path)
+            logging.info(f"Uploaded: {video.filename}")
+            return redirect(url_for('index'))
+        except Exception as e:
+            logging.error(f"Error uploading {video.filename}: {str(e)}")
+            return 'Error uploading video'
+
     return 'Error uploading video'
 
 if __name__ == '__main__':
