@@ -9,7 +9,9 @@ app = Flask(__name__)
 videos = UploadSet('videos', extensions=('mp4', 'avi', 'mkv'))
 app.config['UPLOADED_VIDEOS_DEST'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+logging.basicConfig(filename='app.log', level=logging.INFO)
 configure_uploads(app, videos)
+
 @app.route('/')
 def index():
     return render_template('index.html')
