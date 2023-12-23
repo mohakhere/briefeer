@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_uploads import UploadSet, configure_uploads, IMAGES
+import os
+import logging
 
 app = Flask(__name__)
 
