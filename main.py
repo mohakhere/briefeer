@@ -25,5 +25,4 @@ def create_user():
     #return jsonify(data), 201
     return ("User " + str(data["user_name"]) + " Created Successfully"), 201 
 
-if __name__== "__main__":
-    app.run(debug=True)
+
