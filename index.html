@@ -45,3 +45,15 @@
             background-color: #45a049;
         }
     </style>
+        </head>
+<body>
+    <h1>Video Editor</h1>
+
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        <input type="file" name="video" accept="video/*" required>
+        <button type="submit">Upload Video</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
