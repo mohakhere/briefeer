@@ -20,6 +20,7 @@ def upload():
         video = request.files['video']
         video_path = os.path.join('uploads', video.filename)
 
+
         if os.path.exists(video_path):
             logging.warning(f"File already exists: {video.filename}")
             return 'File with this name already exists'
