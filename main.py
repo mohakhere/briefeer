@@ -23,6 +23,4 @@ def get_user(user_id):
 def create_user():
     data = request.get_json()
     #return jsonify(data), 201
-    return ("User " + str(data["user_name"]) + " Created Successfully"), 201 
-
-
+    return ("User " + str(data["user_name"]) + " Created Successfully"), 201
