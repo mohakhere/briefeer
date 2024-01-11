@@ -1,3 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Web Audio API
+    // Web Audio API [Consolidated]
 });
+
