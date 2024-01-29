@@ -32,8 +32,6 @@ def upload():
         except Exception as e:
             logging.error(f"Error uploading {video.filename}: {str(e)}")
             return 'Error uploading video'
-
     return 'Error uploading video'
-
 if __name__ == '__main__':
     app.run(debug=True)
