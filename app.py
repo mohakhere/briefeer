@@ -5,7 +5,6 @@ import logging
 
 app = Flask(__name__)
 
-# Configure the upload folder
 videos = UploadSet('videos', extensions=('mp4', 'avi', 'mkv'))
 app.config['UPLOADED_VIDEOS_DEST'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
