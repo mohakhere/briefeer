@@ -10,9 +10,7 @@ app.config['UPLOADED_VIDEOS_DEST'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 logging.basicConfig(filename='app.log', level=logging.INFO)
 videos = UploadSet('videos', extensions=('mp4', 'avi', 'mkv'))
-
 configure_uploads(app, videos)
-
 @app.route('/upload', methods=['POST'])
 def upload():
     if 'video' in request.files:
