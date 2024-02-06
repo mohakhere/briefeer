@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Editor</title>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,12 +40,10 @@
         </head>
 <body>
     <h1>Video Editor</h1>
-
     <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
         <input type="file" name="video" accept="video/*" required>
         <button type="submit">Upload Video</button>
     </form>
-
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
