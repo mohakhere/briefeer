@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 import os
 import logging
-
 app = Flask(__name__)
 
 videos = UploadSet('videos', extensions=('mp4', 'avi', 'mkv'))
@@ -16,12 +15,9 @@ def upload():
     if 'video' in request.files:
         video = request.files['video']
         video_path = os.path.join('uploads', video.filename)
-
-
         if os.path.exists(video_path):
             logging.warning(f"File already exists: {video.filename}")
             return 'File with this name already exists'
-
         try:
             video.save(video_path)
             logging.info(f"Uploaded: {video.filename}")
