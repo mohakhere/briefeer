@@ -3,7 +3,6 @@ from flask_uploads import UploadSet, configure_uploads, IMAGES
 import os
 import logging
 app = Flask(__name__)
-
 videos = UploadSet('videos', extensions=('mp4', 'avi', 'mkv'))
 app.config['UPLOADED_VIDEOS_DEST'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
